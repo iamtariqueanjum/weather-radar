@@ -30,6 +30,7 @@
 			    </ul>
 			</div>
 			<form class="form-inline my-2 my-lg-0">
+			
 			   <a class="btn btn-outline-warning" href="/login" role="button">LOGIN</a>&nbsp;
 			   <a class="btn btn-outline-warning" href="/register" role="button">SIGNUP</a>
 		    </form>
