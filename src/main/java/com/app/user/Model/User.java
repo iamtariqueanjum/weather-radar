@@ -9,18 +9,18 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name =  "user_details", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name =  "user_details")
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Column(name="First Name")
-	private String firstName;
+	@Column(name="firstName")
+	private String fName;
 	
-	@Column(name="Last Name")
-	private String lastName;
+	@Column(name="lName")
+	private String lName;
 	
 	@Column(name="Email")
 	private String email;
@@ -28,10 +28,10 @@ public class User {
 	@Column(name="Mobile")
 	private long mobile;
 	
-	@Column(name="username")
+	@Column
 	private String username;
 
-	@Column(name="password")
+	@Column
 	private String password;
 	
 	public int getId() {
@@ -41,21 +41,21 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public String getFirstName() {
-		return firstName;
+
+	public String getfName() {
+		return fName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setfName(String fName) {
+		this.fName = fName;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getlName() {
+		return lName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setlName(String lName) {
+		this.lName = lName;
 	}
 
 	public String getEmail() {
@@ -73,7 +73,7 @@ public class User {
 	public void setMobile(long mobile) {
 		this.mobile = mobile;
 	}
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -89,5 +89,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 }

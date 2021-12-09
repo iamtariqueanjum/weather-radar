@@ -16,19 +16,6 @@
 	  		<a class="navbar-brand" href="/">
 	   			<img src="static/img/logo.svg" width="100" height="50" alt="logo">
 			</a>
-			<div>
-				<ul class="navbar-nav">
-			      <li class="nav-item active">
-			        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="#">About</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="#">Contact us</a>
-			      </li>
-			    </ul>
-			</div>
 			<form class="form-inline my-2 my-lg-0">
 			
 			   <a class="btn btn-outline-warning" href="/login" role="button">LOGIN</a>&nbsp;

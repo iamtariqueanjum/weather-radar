@@ -10,6 +10,7 @@ import com.app.user.Repository.UserRepository;
 
 @Service
 public class UserService {
+	
   @Autowired
   UserRepository userrepository;
   
@@ -17,15 +18,15 @@ public class UserService {
 	  userrepository.save(user);
   }
   
-  public List<User> getalluserrecords(){
-	  return (List<User>) userrepository.findAll();
-  }
-  
-  public User getuserrecord(int id) {
-	  return userrepository.getById(id);
-  }
-  
-  public void deleteuserrecord(int id) {
-	  userrepository.deleteById(id);
-  }
+//  public List<User> getalluserrecords(){
+//	  return (List<User>) userrepository.findAll();
+//  }
+//  
+//  public User getuserrecord(int id) {
+//	  return userrepository.getById(id);
+//  }
+//  
+//  public void deleteuserrecord(int id) {
+//	  userrepository.deleteById(id);
+//  }
 }
