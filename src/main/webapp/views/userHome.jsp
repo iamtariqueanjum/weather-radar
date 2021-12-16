@@ -21,5 +21,27 @@
 		    </form>
 		</nav>
 			<h1>Welcome <%= session.getAttribute("username") %></h1>
+			<script>  
+				var OpenWeather_API_key = "a77258fa6083c3ab9c85b43a57dbd73c";
+				var x= document.getElementById("location");  
+				function getLocation() {
+		          if (navigator.geolocation) {
+		            navigator.geolocation.getCurrentPosition(showPosition)
+		          }
+		        }
+				function showPosition(position) {
+		        	var x = "Your current location is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " +    position.coords.longitude + ")";  
+		            document.getElementById("location").innerHTML = x;
+		    		//"http://api.openweathermap.org/data/2.5/weather?lat="position.coords.latitude+"&lon="+position.coords.longitude+"&appid="+OpenWeather_API_key
+		            var datas = fetch("https://api.github.com/users/iamtariqueanjum")
+		            	    console.log(datas)           		 
+				}
+			</script>
+			<div class="content">
+				<input value="" placeholder="Enter your city name here..."/>
+				<button>Get Today's Weather</button>
+			</div>  
+			<div id="location"></div>
+			<div id="first"></div>
 	</body> 	
 </html>

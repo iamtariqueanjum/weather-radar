@@ -40,6 +40,19 @@ public class UserService
 	  return true;
   }
   
+  public boolean sessionExists(HttpSession session) {
+	  String user = (String) session.getAttribute("username");
+		if(user != null) {
+			return true;
+		}
+		return false;
+  }
+  
+  public void destroySession(HttpSession session) {
+	  session.removeAttribute("username");
+	  session.invalidate();
+  }
+  
   public List<User> getAllUsers() {
 	  return (List<User>) userrepository.findAll();
   }
