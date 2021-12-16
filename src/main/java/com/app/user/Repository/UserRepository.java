@@ -1,9 +1,15 @@
 package com.app.user.Repository;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.app.user.Model.User;
 
-public interface UserRepository extends CrudRepository<User,Integer>{
+public interface UserRepository extends JpaRepository<User,Integer>
+{
 
+	List<User> findByUsernameAndPassword(String username, String password);
+	List<User> findByUsername(String username);
+	
 }

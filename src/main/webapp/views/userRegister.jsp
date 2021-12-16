@@ -3,10 +3,10 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>User Register</title>
+		<title>Register your account</title>
 	</head>
 	<body>
-		<jsp:include page="userHome.jsp"></jsp:include>
+		<jsp:include page="index.jsp"></jsp:include>
 		<form action="/adduser" method="post">
 			<label for="firstName"><b>First Name:</b></label>
 	    	<input type="text" name="firstName" placeholder="Enter first name here" required><br/>

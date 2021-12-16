@@ -8,29 +8,38 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.sun.istack.NotNull;
+
 @Entity
-@Table(name =  "user_details")
-public class User {
+@Table(name =  "user_details", uniqueConstraints={@UniqueConstraint(columnNames={"username"})})
+public class User 
+{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+	@NotNull
 	@Column(name="firstName")
 	private String fName;
 	
+	@NotNull
 	@Column(name="lName")
 	private String lName;
 	
+	@NotNull
 	@Column(name="Email")
 	private String email;
 	
+	@NotNull
 	@Column(name="Mobile")
 	private long mobile;
 	
-	@Column
+	@NotNull
+	@Column(unique=true)
 	private String username;
 
+	@NotNull
 	@Column
 	private String password;
 	
