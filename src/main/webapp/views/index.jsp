@@ -21,5 +21,9 @@
 			   <a class="btn btn-outline-warning" href="/register" role="button">SIGNUP</a>
 		    </form>
 		</nav>
+		<h3>Login to check weather data of your desired location. <hr/> Get our forecasting alerts of the climates of the following days.</h3>
 	</body>
+	<footer>
+		<h1>Here Footer to be displayed</h1>
+	</footer>
 </html>

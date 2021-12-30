@@ -1,15 +1,16 @@
-package com.app.user.Service;
+package com.app.Service;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.app.Model.Weather;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.user.Model.User;
-import com.app.user.Repository.UserRepository;
+import com.app.Model.User;
+import com.app.Repository.UserRepository;
 
 @Service
 public class UserService 
@@ -52,13 +53,5 @@ public class UserService
 	  session.removeAttribute("username");
 	  session.invalidate();
   }
-  
-  public List<User> getAllUsers() {
-	  return (List<User>) userrepository.findAll();
-  }
-  
-  public List<User> getUserByUsername(String username) {
-	  return userrepository.findByUsername(username);
-  }
-  
+
 }

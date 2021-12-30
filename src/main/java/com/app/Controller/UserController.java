@@ -1,26 +1,24 @@
-package com.app.user.Controller;
-
-import java.util.List;
+package com.app.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.app.user.Model.User;
-import com.app.user.Service.UserService;
+import com.app.Model.User;
+import com.app.Service.UserService;
 
-@RestController
+@Controller
 public class UserController {
 
 	@Autowired
 	private UserService userservice;
-	
+
 	@GetMapping("/")
 	public ModelAndView index(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
@@ -34,7 +32,7 @@ public class UserController {
 		}
 		return mv;
 	}
-	
+		
 	@GetMapping("/register")
 	public ModelAndView register(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
@@ -48,7 +46,7 @@ public class UserController {
 		}
 		return mv;
 	}
-	
+
 	@PostMapping("/adduser")
 	public ModelAndView adduser(@RequestParam("firstName") String fName, @RequestParam("lastName") String lName, @RequestParam("email") String email,
 			@RequestParam("mobile") long mobile, @RequestParam("username") String username, @RequestParam("password") String password, HttpServletRequest request) throws Exception {
@@ -67,7 +65,7 @@ public class UserController {
 		}
 		mv.setViewName("userRegister");
 		return mv;
-	}		
+	}
 	
 	@GetMapping("/login")
 	public ModelAndView login(HttpServletRequest request) {
@@ -107,16 +105,6 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/");
 		return mv;
-	}
-	
-	@GetMapping("/users/all")
-	public List<User> getAllUserRecords() {
-		return userservice.getAllUsers();
-	}
-
-	@GetMapping("/user/details")
-	public List<User> getUserRecord(@RequestParam("username") String username) {
-		return userservice.getUserByUsername(username);
 	}
 	
 }
