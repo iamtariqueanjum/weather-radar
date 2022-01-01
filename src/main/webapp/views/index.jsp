@@ -1,29 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="ISO-8859-1">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-		<title>WeatherRadar</title>
-	</head>
-	<body>
-		<nav class="navbar navbar-light" style="background-color: #4d425e;">
-	  		<a class="navbar-brand" href="/">
-	   			<img src="static/img/logo.svg" width="100" height="50" alt="logo">
-			</a>
-			<form class="form-inline my-2 my-lg-0">
-			   <a class="btn btn-outline-warning" href="/login" role="button">LOGIN</a>
-			   <a class="btn btn-outline-warning" href="/register" role="button">SIGNUP</a>
-		    </form>
-		</nav>
-		<h3>Login to check weather data of your desired location. <hr/> Get our forecasting alerts of the climates of the following days.</h3>
-	</body>
-	<footer>
-		<h1>Here Footer to be displayed</h1>
-	</footer>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WR | Home</title>
+	<link rel="stylesheet" href="static/css/styles.css">
+	<link rel="shortcut icon" href="../static/img/fav.png" type="image/x-icon">  
+</head>
+<body>
+	<div class="wrapper">
+			<nav class="navbar">
+				<img class="logo" src="static/img/logo.svg">
+				<ul>
+					<li><a class="active" href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/contact">Contact</a></li>
+					<li><a href="/register">Register</a></li>
+					<li><a href="/login">Login</a></li>
+				</ul>
+			</nav>
+			<div class="center">
+			<h1>Welcome To <br>Weather Radar</h1><br><br><br>
+			<div class="buttons">
+			<button onclick="/login">Get Started</button>
+		</div>
+		</div>
+	</div>
+</body>
 </html>

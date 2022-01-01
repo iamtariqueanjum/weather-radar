@@ -1,36 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="ISO-8859-1">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-		<title>Login - Weather Radar</title>
-	</head>
-	<body>
-		<nav class="navbar navbar-light" style="background-color: #4d425e;">
-	  		<a class="navbar-brand" href="/">
-	   			<img src="static/img/logo.svg" width="100" height="50" alt="logo">
-			</a>
-			<form class="form-inline my-2 my-lg-0">
-			   <a class="btn btn-outline-warning" href="/login" role="button">LOGIN</a>
-			   <a class="btn btn-outline-warning" href="/register" role="button">SIGNUP</a>
-		    </form>
-		</nav>
-		<form action="/checkuser" method="post">
-			<label for="username"><b>Username:</b></label>
-	    	<input type="text" name="username" placeholder="Enter username here" required><br/>
-			<label for="password"><b>Password:</b></label>
-	    	<input type="password" name="password" placeholder="Enter password here" required><br/>
-			<input class="btn btn-outline-warning" type="submit" value="LOGIN">
-			<a class="btn btn-outline-warning" href="/register" role="button">SIGNUP</a>
-		</form>
-	</body>
-	<footer>
-		<h1>Here Footer to be displayed</h1>
-	</footer>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WR | Login</title>
+	<link rel="stylesheet" href="static/css/styles.css">
+	<link rel="shortcut icon" href="../static/img/fav.png" type="image/x-icon">  
+</head>
+<body>
+	<div class="wrapper">
+			<nav class="navbar">
+				<img class="logo" src="static/img/logo.svg">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/contact">Contact</a></li>
+					<li><a href="/register">Register</a></li>
+					<li><a class="active" href="/login">Login</a></li>
+				</ul>
+			</nav>
+    </div>
+	<div class="reg-box">
+		<div class="reg">
+			<h2 align="center">Login</h2><br>
+			<center>
+			<form method="post" action="/checkuser">
+				<input type="text" placeholder="Enter Username" name="username" required>
+				<input type="password" placeholder="Enter Password" name="password" required><br>
+				<input type="submit" value="Login">
+			</form>
+		</center>
+		</div>
+	</div>
+</body>
 </html>

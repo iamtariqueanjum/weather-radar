@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.app.Model.User;
 import com.app.Service.UserService;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UserController {
@@ -32,7 +33,23 @@ public class UserController {
 		}
 		return mv;
 	}
-		
+
+	@GetMapping("/about")
+	public ModelAndView about()
+	{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("about");
+		return mv;
+	}
+
+	@GetMapping("/contact")
+	public ModelAndView contact()
+	{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("contact");
+		return mv;
+	}
+
 	@GetMapping("/register")
 	public ModelAndView register(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
@@ -48,8 +65,9 @@ public class UserController {
 	}
 
 	@PostMapping("/adduser")
-	public ModelAndView adduser(@RequestParam("firstName") String fName, @RequestParam("lastName") String lName, @RequestParam("email") String email,
-			@RequestParam("mobile") long mobile, @RequestParam("username") String username, @RequestParam("password") String password, HttpServletRequest request) throws Exception {
+	public ModelAndView adduser(@RequestParam("firstname") String fName, @RequestParam("lastname") String lName, @RequestParam("email") String email,
+								@RequestParam("mobile") long mobile, @RequestParam("username") String username, @RequestParam("password") String password,
+								HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		User user = new User();
 		user.setfName(fName);

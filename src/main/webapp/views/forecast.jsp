@@ -26,17 +26,17 @@
 			</ul>
 		</nav>
 		<center>
-			<form method="post" action="/weather">
+			<form method="post" action="/forecast">
 				<div class="reg-box">
 					<div class="reg">
 						<select name="country" class="countries form-control" id="countryId" required>
-							<option value="" required>Select Country</option>
+							<option value="">Select Country</option>
 						</select>
 						<select name="state" class="states form-control" id="stateId" required>
-							<option value="" required>Select State</option>
+							<option value="">Select State</option>
 						</select>
 						<select name="city" class="cities form-control" id="cityId" required>
-							<option value="" required>Select City</option>
+							<option value="">Select City</option>
 						</select>
 						<input type="submit" class="btn btn-outline-dark" value="Get Weather Report"/>
 					</div>
