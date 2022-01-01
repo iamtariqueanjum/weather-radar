@@ -23,7 +23,7 @@ public class WeatherService extends MappingJackson2HttpMessageConverter{
         String result = restTemplate.getForObject(websiteResponse, String.class);	    	   	    	        
         
         String description = null;
-        double temp=0;
+        int temp=0;
         int pressure=0;
         int humidity = 0;
         int temp_min=0;
@@ -55,7 +55,7 @@ public class WeatherService extends MappingJackson2HttpMessageConverter{
             JSONObject arrayElement = weatherObject.getJSONObject(i);
             
             JSONObject main = arrayElement.getJSONObject("main");
-            temp = (int) main.getFloat("temp");
+            temp = (int) main.getInt("temp");
             pressure =  main.getInt("pressure");
             humidity = main.getInt("humidity");
             temp_min = main.getInt("temp_min");
@@ -69,26 +69,26 @@ public class WeatherService extends MappingJackson2HttpMessageConverter{
             WeatherCondition = arrayElement.getJSONArray("weather").getJSONObject(0).getString("main");
             id = arrayElement.getJSONArray("weather").getJSONObject(0).getInt("id");
                      
-                   date = arrayElement.getString("dt_txt");
-            	
-                   date1 = dfinput.parse(date);
-                   w.add(temp);
-                   w.add((int) pressure/10);
-                   w.add(humidity);
-                   w.add(grnd_level);
-                   w.add(sea_level);
-                   w.add(temp_kf);
-                 
-                   w.add(temp_max);
-                   w.add(temp_min);
-                 
-                   w.add(description);
-                   w.add(icon);
-                   w.add(id);
-                   w.add(WeatherCondition);
-                 
-                   w.add(dfoutput2.format(date1));
-                   w.add(date);
+           date = arrayElement.getString("dt_txt");
+
+           date1 = dfinput.parse(date);
+           w.add(temp);
+           w.add((int) pressure/10);
+           w.add(humidity);
+           w.add(grnd_level);
+           w.add(sea_level);
+           w.add(temp_kf);
+
+           w.add(temp_max);
+           w.add(temp_min);
+
+           w.add(description);
+           w.add(icon);
+           w.add(id);
+           w.add(WeatherCondition);
+
+           w.add(dfoutput2.format(date1));
+           w.add(date);
                 weatherList.add(w);              
            }
     
@@ -105,13 +105,15 @@ public class WeatherService extends MappingJackson2HttpMessageConverter{
     	
         String description = null;
         String WeatherCondition = null;
-        double temp;
-        double temp_min;
-        double temp_max;
-        double pressure;
+        int temp;
+        int temp_feels_like;
+        int temp_min;
+        int temp_max;
+        int pressure;
         int humidity;
-       
-        
+        int sea_level;
+        int grnd_level;
+
         List<Object> weatherList = new ArrayList<>();
               
         JSONObject root = new JSONObject(result);
@@ -120,24 +122,109 @@ public class WeatherService extends MappingJackson2HttpMessageConverter{
 
         for (int i = 0; i < weatherObject.length(); i++) {
             JSONObject elementInArray = weatherObject.getJSONObject(i);
-            description = elementInArray.getString("description");
             WeatherCondition = elementInArray.getString("main");
+            weatherList.add(WeatherCondition);
+            description = elementInArray.getString("description");
+            weatherList.add(description);
         }
 
         JSONObject main = root.getJSONObject("main");
-       
-        temp = (int) main.getFloat("temp");
-        pressure = main.getInt("pressure");
-        humidity = main.getInt("humidity");
-        temp_min= (int) main.getFloat("temp_min");
-        temp_max= (int) main.getFloat("temp_max");
-        
 
+        try {
+            temp = main.getInt("temp");
             weatherList.add(temp);
-            weatherList.add(pressure);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            weatherList.add(0);
+        }
+        try {
+            temp_feels_like = main.getInt("feels_like");
+            weatherList.add(temp_feels_like);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            weatherList.add(0);
+        }
+        try {
+            temp_min = main.getInt("temp_min");
             weatherList.add(temp_min);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            weatherList.add(0);
+        }
+        try {
+            temp_max = main.getInt("temp_max");
             weatherList.add(temp_max);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            weatherList.add(0);
+        }try {
+            pressure = main.getInt("pressure");
+            weatherList.add(pressure);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            weatherList.add(0);
+        }
+        try {
+            humidity = main.getInt("humidity");
             weatherList.add(humidity);
-		return weatherList;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            weatherList.add(0);
+        }
+        try {
+            sea_level = main.getInt("sea_level");
+            weatherList.add(sea_level);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            weatherList.add(0);
+        }
+        try {
+            grnd_level = main.getInt("grnd_level");
+            weatherList.add(grnd_level);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            weatherList.add(0);
+        }
+
+        int speed;
+        int deg;
+        int gust;
+
+        JSONObject wind = root.getJSONObject("wind");
+
+        try {
+            speed = wind.getInt("speed");
+            weatherList.add(speed);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            weatherList.add(0);
+        }
+        try {
+            deg = wind.getInt("deg");
+            weatherList.add(deg);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            weatherList.add(0);
+        }
+        try {
+            gust = wind.getInt("gust");
+            weatherList.add(gust);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            weatherList.add(0);
+        }
+
+        return weatherList;
     }
 }

@@ -40,7 +40,7 @@ public class User
 	private String username;
 
 	@NotNull
-	@Column
+	@Column()
 	private String password;
 	
 	public int getId() {
