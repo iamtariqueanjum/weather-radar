@@ -4,23 +4,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WR | Contact Us</title>
+    <title>WR | Admin Home</title>
     <link rel="stylesheet" href="../static/css/styles.css">
     <link rel="shortcut icon" href="../static/img/fav.png" type="image/x-icon">
 </head>
 <body>
 <div class="wrapper">
     <nav class="navbar">
-        <img class="logo" src="static/img/logo.svg">
+        <img class="logo" src="../static/img/logo.svg">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a class="active" href="/contact">Contact</a></li>
-            <li><a href="/register">Register</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/admin/login">Admin</a></li>
+            <li><a class="active" href="/admin">Home</a></li>
+            <li><a href="/admin/logout">Logout</a></li>
         </ul>
     </nav>
+    <div class="center">
+        <h1>Welcome <br><%= session.getAttribute("adminusername")%></h1><br><br><br>
+        <div class="weather-opts">
+            <a href="/view/users">Get Users data</a>
+        </div>
+    </div>
 </div>
 </body>
 </html>

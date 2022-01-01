@@ -18,14 +18,12 @@
 					<li><a href="/contact">Contact</a></li>
 					<li><a href="/register">Register</a></li>
 					<li><a href="/login">Login</a></li>
+					<li><a href="/admin/login">Admin</a></li>
 				</ul>
 			</nav>
 			<div class="center">
-			<h1>Welcome To <br>Weather Radar</h1><br><br><br>
-			<div class="buttons">
-			<button onclick="/login">Get Started</button>
-		</div>
-		</div>
+				<h1>Welcome To <br>Weather Radar</h1><br><br><br>
+			</div>
 	</div>
 </body>
 </html>

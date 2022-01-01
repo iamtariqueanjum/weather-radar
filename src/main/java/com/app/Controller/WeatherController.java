@@ -42,7 +42,7 @@ public class WeatherController {
 			@RequestParam String city, HttpServletRequest request) throws java.text.ParseException, HttpClientErrorException {
         city = request.getParameter("city");
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("report");
+        mv.setViewName("forecastreport");
         try{
             mv.addObject("lst",this.weatherService.getWeatherForFive(city));
             System.out.println(this.weatherService.getWeatherForFive(city));

@@ -1,14 +1,6 @@
 package com.app.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
-import com.sun.istack.NotNull;
+import javax.persistence.*;
 
 @Entity
 @Table(name =  "user_details", uniqueConstraints={@UniqueConstraint(columnNames={"username"})})
@@ -19,27 +11,21 @@ public class User
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@NotNull
 	@Column(name="firstName")
 	private String fName;
-	
-	@NotNull
+
 	@Column(name="lName")
 	private String lName;
 	
-	@NotNull
 	@Column(name="Email")
 	private String email;
-	
-	@NotNull
-	@Column(name="Mobile")
+
+	@Column(name="Mobile", nullable = false, unique = true)
 	private long mobile;
 	
-	@NotNull
 	@Column(unique=true)
 	private String username;
 
-	@NotNull
 	@Column()
 	private String password;
 	

@@ -1,8 +1,7 @@
 package com.app.Controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
+import com.app.Model.User;
+import com.app.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.app.Model.User;
-import com.app.Service.UserService;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
@@ -109,6 +107,7 @@ public class UserController {
 			return mv;
 	    }
 		mv.setViewName("userLogin");
+		mv.addObject("errorMsg","Username or password is Incorrect");
 		return mv;
 	}
 	

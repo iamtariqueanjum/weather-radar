@@ -17,6 +17,7 @@
 					<li><a href="/contact">Contact</a></li>
 					<li><a  class="active" href="/register">Register</a></li>
 					<li><a href="/login">Login</a></li>
+					<li><a href="/admin/login">Admin</a></li>
 				</ul>
 			</nav>
 		<div class="reg-box">
